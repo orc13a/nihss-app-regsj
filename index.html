@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="da">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NIHSS vurdering</title>
+        <!-- PWA: manifest + farve til statusbar -->
+        <link rel="manifest" href="manifest.webmanifest">
+        <meta name="theme-color" content="#06809C">
+        <link rel="stylesheet" href="./css/main.css">
+    </head>
+    <body>
+        <main>
+            <div class="mainContentFlex">
+                <div class="mainContentFlexTop">
+                    <!-- Undersøgelse og suplerende til undersøgelse -->
+                    <div class="assessmentHeaderContainer">
+                        <div class="assessmentHeader">
+                            1a. Bevisthedsniveau
+                        </div>
+                        <div class="assessmentSubHeader">
+                            Ligger du godt - Har du nogle smerter
+                        </div>
+                    </div>
+                    <!-- Beskrivelse af undersøgelse -->
+                    <div class="assessmentDescription">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at sem lobortis, efficitur neque eget, fringilla ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent auctor consectetur massa, in faucibus turpis posuere eu. Curabitur ac feugiat nibh. Aenean mi ante, ultricies vitae aliquet sed, euismod eget erat. Suspendisse ac turpis nisi.
+                    </div>
+                </div>
+                <div class="mainContentFlexBottom">
+                    <!-- Valg af point -->
+                    <div class="assessmentScoringContainer">
+                        <div class="assessmentScoringButtonContainer">
+                            <button class="assessmentScoringButton">
+                                0
+                            </button>
+                        </div>
+                        <div class="assessmentScoringButtonContainer">
+                            <button class="assessmentScoringButton">
+                                1
+                            </button>
+                        </div>
+                        <div class="assessmentScoringButtonContainer">
+                            <button class="assessmentScoringButton">
+                                2
+                            </button>
+                        </div>
+                        <div class="assessmentScoringButtonContainer">
+                            <button class="assessmentScoringButton">
+                                3
+                            </button>
+                        </div>
+                        <div class="assessmentScoringButtonContainer">
+                            <button class="assessmentScoringButton">
+                                4
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Næste undersøgelse knap -->
+                    <div class='nextAssessmentButtonContainer'>
+                        <button class='nextAssessmentButton'>
+                            Næste
+                        </button>
+                    </div>
+                    <!-- Progressbar -->
+                    <div class='progressbar'>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="./js/main.js"></script>
+    <script>
+        // Registrér service worker (PWA-magi)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(reg => {
+                        console.log('Service worker registreret:', reg.scope);
+                    })
+                    .catch(err => {
+                        console.error('Service worker fejl:', err);
+                    });
+            });
+        }
+    </script>
+</html>

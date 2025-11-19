@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html, body, main {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.8px;
+    background-color: #F5F5F5;
+    margin: 0px;
+    color: #333;
+    overscroll-behavior: none;
+    height: 100vh;
+    width: 100vw;
+}
+
+.mainContentFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.assessmentHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 6px;
+    margin-bottom: 20px;
+    background-color: #06809C;
+}
+
+.assessmentHeader {
+    /* color: #06809C; */
+    color: #F5F5F5;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.assessmentSubHeader {
+    color: #cfcfcf;
+}
+
+.assessmentDescription {
+    padding: 0px 16px;
+}
+
+.mainContentFlexBottom {
+    width: 100%;
+}
+
+.assessmentScoringContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* padding: 0px 16px; */
+    align-items: center;
+    width: 100%;
+}
+
+.assessmentScoringButtonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.assessmentScoringButton {
+    width: 80%;
+    border: 2px solid #06809C;
+    /* border: none; */
+    /* background-color: rgba(6, 128, 156, 1); */
+    background-color: #F5F5F5;
+    /* color: #F5F5F5; */
+    color: #06809C;
+    font-weight: 700;
+    font-size: 32px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nextAssessmentButtonContainer {
+    padding: 16px 16px 16px 16px;
+    margin-top: 25px;
+}
+
+.nextAssessmentButton {
+    width: 100%;
+    /* border: 2px solid #06809C; */
+    border: none;
+    background-color: rgba(6, 128, 156, 1);
+    color: #F5F5F5;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 28px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.progressbar {
+    /* 100/15, så 15 dele */
+    width: 6.66%;
+    height: 4px;
+    background-color: #06809C;
+}
