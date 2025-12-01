@@ -12,5 +12,6 @@ html, body, main {
   overscroll-behavior: none;
   height: 100vh;
   width: 100vw;
+  /* max-width: 450px; */
 }
 
