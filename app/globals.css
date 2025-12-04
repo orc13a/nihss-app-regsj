@@ -15,3 +15,6 @@ html, body, main {
   /* max-width: 450px; */
 }
 
+button {
+  font-family: "Inter", sans-serif;
+}

@@ -3,7 +3,8 @@
         "assessment": 1,
         "assessmentTitle": "1a. Bevisthedsnivaue",
         "assessmentSubTitle": "Ligger du godt - Har du nogen smerter",
-        "description": "Vurder patientens vågenhed ved at observere spontan øjenåbning, kontakt og reaktion. Tal til patienten for at se, om der kommer respons. Hvis der ikke er reaktion på tale, bruges let smerte- eller kraftigere stimulation (fx tryk på sternum eller trapezius) for at vurdere reaktionsevnen.",
+        "descriptionHeader": "",
+        "description": "Vurder patientens vågenhed ud fra spontan kontakt, reaktion på tiltale og reaktion på smerte. Vælg det bedst mulige respons, også hvis fuld undersøgelse hindres af fx tube eller sprogbarriere. Score 3 gives kun, hvis der ingen bevægelse ses udover abnorme refleksmønstre ved smerte.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -27,7 +28,8 @@
         "assessment": 2,
         "assessmentTitle": "1b. Spørgsmål",
         "assessmentSubTitle": "Hvilken måned er det - Hvor gammel er du",
-        "description": "Bed patienten om at oplyse årstal og måned. Tal tydeligt og gentag spørgsmålet én gang hvis nødvendigt. Vurder om patienten forstår og forsøger at svare, uden at hjælpe eller stille ledende spørgsmål.",
+        "descriptionHeader": "",
+        "description": "Spørg patienten om måned og alder. Svaret skal være korrekt i første forsøg, og der gives ikke point for næsten rigtige svar. Undersøgeren må ikke hjælpe. Kan patienten ikke svare pga. tube, svær dysartri eller sprogbarriere, gives score 1. Forstår patienten ikke spørgsmålene pga. afasi eller bevidsthedspåvirkning, gives score 2.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -47,7 +49,8 @@
         "assessment": 3,
         "assessmentTitle": "1c. Kommandoer",
         "assessmentSubTitle": "Luk og åben øjne - Knyt og åbne en hånd",
-        "description": "Bed patienten udføre to simple kommandoer, fx “åbn øjnene” og “knyt hånden”. Giv én instruktion ad gangen, tydeligt og uden at demonstrere. Vurder om patienten forstår og forsøger at udføre kommandoerne.",
+        "descriptionHeader": "",
+        "description": "Bed patienten åbne og lukke øjnene og derefter knytte og åbne den ikke-paretiske hånd. Brug en anden enkel én-trins kommando, hvis hånden ikke kan bruges. Handlingen tæller som udført, også ved nedsat kraft. Forstår patienten ikke ordren, må den demonstreres. Kun første forsøg scores.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -67,7 +70,8 @@
         "assessment": 4,
         "assessmentTitle": "2. Blik",
         "assessmentSubTitle": "Kun horisontale øjenbevægelser",
-        "description": "Bed patienten se lige frem og følg dine fingre med øjnene uden at bevæge hovedet. Før fingeren langsomt fra side til side i hele synsfeltet. Vurder om øjnene kan bevæges frit, eller om der ses tvangsdrejet blik eller begrænsning i øjenbevægelserne.",
+        "descriptionHeader": "",
+        "description": "Test kun horisontale øjenbevægelser. Bed patienten følge et punkt fra side til side uden at bevæge hovedet. Hvis en tvangsdrejet blikretning kan brydes ved oculocephal test eller ved øjenkontakt og sidebevægelse, gives score 1. Isoleret øjenmuskelparese giver også score 1.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -87,7 +91,8 @@
         "assessment": 5,
         "assessmentTitle": "3. Test af synsfelt",
         "assessmentSubTitle": "",
-        "description": "Test synsfelterne ved at holde patientens blik rettet lige frem og bevæge dine fingre ind i synsfeltet fra hver kvadrant. Bed patienten sige til, når de ser dine fingre. Undersøg begge øjne og vurder om der mangler syn i en eller flere kvadranter.",
+        "descriptionHeader": "",
+        "description": "Test øvre og nedre synsfelt med fingertælling, fingerbevægelser eller trusselsbevægelser. Vurder for tydelig asymmetri eller kvadrantanopsi. Ved ensidig blindhed vurderes synsfeltet på det raske øje. Ved bilateral blindhed gives score 3. Test også dobbeltsidig samtidig stimulation; ses visuel inattention, gives score 1 og dette indgår i vurderingen af spørgsmål 11.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -111,7 +116,8 @@
         "assessment": 6,
         "assessmentTitle": "4. Facialisparese",
         "assessmentSubTitle": "Vis tænder - lukke øjnene fast i - løfte øjenbryn",
-        "description": "Bed patienten løfte begge øjenbryn, lukke øjnene stramt og vise tænder. Observer om ansigtet bevæger sig symmetrisk, og om der er nedsat eller manglende bevægelse i én side.",
+        "descriptionHeader": "",
+        "description": "Bed patienten løfte øjenbryn, lukke øjnene stramt og vise tænder. Demonstrér ved behov. Hvis patienten ikke kan samarbejde pga. forståelsesproblemer eller bevidsthedspåvirkning, vurderes mimik ud fra spontane bevægelser eller reaktion på smertestimuli.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -135,7 +141,8 @@
         "assessment": 7,
         "assessmentTitle": "5a. Motorisk funktion",
         "assessmentSubTitle": "Venstre arm",
-        "description": "Bed patienten løfte venstre arm til 90 grader (eller 45 grader hvis liggende) og holde den oppe uden støtte. Observer om armen synker, og hvor længe patienten kan holde den i position.",
+        "descriptionHeader": "Venstre arm",
+        "description": "Placer venstre arm i korrekt position: strakt frem (håndflade nedad) i 90° ved siddende patient eller 45° hvis liggende. Bed patienten holde armen oppe uden støtte. Synker armen inden 10 sekunder, regnes det som abnormt. Ordren må demonstreres, men smerte må ikke bruges. Test altid den ikke-paretiske arm først.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -163,7 +170,8 @@
         "assessment": 8,
         "assessmentTitle": "5b. Motorisk funktion",
         "assessmentSubTitle": "Højre arm",
-        "description": "Bed patienten løfte højre arm til 90 grader (eller 45 grader hvis liggende) og holde den oppe uden støtte. Observer om armen synker, og hvor længe patienten kan holde den i position.",
+        "descriptionHeader": "Højre arm",
+        "description": "Placer højre arm i korrekt position: strakt frem (håndflade nedad) i 90° ved siddende patient eller 45° hvis liggende. Bed patienten holde armen oppe uden støtte. Synker armen inden 10 sekunder, regnes det som abnormt. Ordren må demonstreres, men smerte må ikke bruges. Test altid den ikke-paretiske arm først.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -191,7 +199,8 @@
         "assessment": 9,
         "assessmentTitle": "6a. Motorisk funktion",
         "assessmentSubTitle": "Venstre ben",
-        "description": "Bed patienten løfte venstre ben cirka 30 grader fra underlaget, mens de ligger ned. Observer om benet kan holdes oppe uden støtte, og hvor hurtigt det synker ned mod underlaget.",
+        "descriptionHeader": "Venstre ben",
+        "description": "Placer venstre ben i korrekt position: løftet ca. 30° fra underlaget mens patienten ligger ned. Bed patienten holde benet oppe uden støtte. Synker benet inden 5 sekunder, regnes det som abnormt. Ordren må demonstreres, men smerte må ikke bruges. Test altid den ikke-paretiske side først.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -219,7 +228,8 @@
         "assessment": 10,
         "assessmentTitle": "6b. Motorisk funktion",
         "assessmentSubTitle": "Højre ben",
-        "description": "Bed patienten løfte højre ben cirka 30 grader fra underlaget, mens de ligger ned. Observer om benet kan holdes oppe uden støtte, og hvor hurtigt det synker ned mod underlaget.",
+        "descriptionHeader": "Højre ben",
+        "description": "Placer højre ben i korrekt position: løftet ca. 30° fra underlaget mens patienten ligger ned. Bed patienten holde benet oppe uden støtte. Synker benet inden 5 sekunder, regnes det som abnormt. Ordren må demonstreres, men smerte må ikke bruges. Test altid den ikke-paretiske side først.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -247,7 +257,8 @@
         "assessment": 11,
         "assessmentTitle": "7. Ekstremitets ataksi",
         "assessmentSubTitle": "",
-        "description": "Test koordination ved at lade patienten føre finger til næse og derefter til din finger, som du flytter under testen. På benene bruges hæl-mod-skinneben. Vurder om bevægelserne er præcise og jævne, eller om der ses ukoordinerede, slingrende bevægelser.",
+        "descriptionHeader": "",
+        "description": "Udfør finger-næse og knæ-hæl test for at identificere unilateral cerebellar ataksi. Testen udføres med åbne øjne og indenfor patientens intakte synsfelt. Ataksi registreres kun, hvis den er tydelig og ikke kan forklares af generel svaghed eller parese.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -267,7 +278,8 @@
         "assessment": 12,
         "assessmentTitle": "8. Sensibilitet",
         "assessmentSubTitle": "Teste ansigt-arme -ben - sammenlignsider",
-        "description": "Undersøg sensibiliteten ved at berøre patientens ansigt, arme og ben let med fingerspidserne eller en vatpind. Sammenlign siderne og vurder, om patienten mærker berøring normalt, reduceret eller slet ikke.",
+        "descriptionHeader": "",
+        "description": "Vurder sensibiliteten ved stik eller berøring på ansigt, arme (ikke hænder), ben og trunkus. Kun nedsat sensibilitet som kan tilskrives apopleksien skal medregnes. Score 2 gives kun ved sikkert påvist svær eller ophævet sensibilitet, samt ved tetraparese, manglende reaktion eller bilateralt bortfald ved hjernestammelæsion. Patienter med afasi eller sløret bevidsthed får ofte score 0–1.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -286,8 +298,9 @@
     {
         "assessment": 13,
         "assessmentTitle": "9. Afasi",
-        "assessmentSubTitle": "Beskrive billeder - benævn genstande - læs sætninger (Brug billede)",
-        "description": "Vurder sproget ved at bede patienten navngive viste genstande, beskrive et billede eller gentage en sætning. Lyt efter flydende tale, korrekt ordvalg og evnen til at forstå instruktioner. Sammenlign med deres normale sprogniveau hvis muligt.",
+        "assessmentSubTitle": "Beskrive billeder - benævn genstande - læs sætninger (Brug billeder)",
+        "descriptionHeader": "",
+        "description": "Vurder sproget ved kontakt under undersøgelsen. Bed patienten beskrive billedet, benævne genstande og læse korte sætninger. Intuberede patienter kan skrive deres svar. Score 3 gives til comatøse patienter (1a = 3) og patienter som hverken udtrykker sig eller følger simple opfordringer.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -311,7 +324,8 @@
         "assessment": 14,
         "assessmentTitle": "10. Dysartri",
         "assessmentSubTitle": "Læs forskellige ord (Brug billede)",
-        "description": "Bed patienten gentage simple ord eller korte sætninger. Lyt efter udtalen og om talen er tydelig eller sløret. Vurder, om patientens artikulation er normal, let påvirket eller svært utydelig.",
+        "descriptionHeader": "",
+        "description": "Vurder patientens udtale ved at lade dem gentage ord fra listen eller tale spontant. Notér om talen er tydelig, sløret eller uforståelig. Hos afatiske patienter vurderes artikulationen af det, de kan sige.",
         "assessmentScoring": [
             {
                 "score": 0,
@@ -331,7 +345,8 @@
         "assessment": 15,
         "assessmentTitle": "11. Inattention",
         "assessmentSubTitle": "Dobbeltsidig sanse stimulation",
-        "description": "Vurder om patienten overser stimuli i den ene side ved at teste samtidig berøring på begge sider af kroppen eller ved at vise objekter i begge synsfelter på én gang. Bemærk om patienten konsekvent ignorerer eller ikke registrerer stimuli på én side.",
+        "descriptionHeader": "",
+        "description": "Vurder inattention ud fra de foregående tests. Hvis dobbeltsidig visuel stimulering ikke kan udføres pga. synstab, og den kutane sensibilitet er normal, scores 0. Afasi udelukker ikke normal opmærksomhed. Visuospatial neglect og anosognosi betragtes som abnorme fund. Kun hvis en tydelig abnormitet er til stede gives score 1 eller 2; ellers score 0.",
         "assessmentScoring": [
             {
                 "score": 0,

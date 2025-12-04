@@ -158,6 +158,8 @@ export default function Home() {
     const [scoring, setScoring] = useState(scoringDefault);
     const [nihssTotalScore, setNihssTotalScore] = useState(0);
     const [assessmentFinished, setAssessmentFinished] = useState(false);
+    const [showImage, setShowImage] = useState(false);
+    const [choosenImage, setChoosenImage] = useState(null);
 
     useEffect(() => {
 
@@ -181,6 +183,16 @@ export default function Home() {
                 </button>
             </div>
         );
+    }
+
+    const openImage = (imageFileName) => {
+        setChoosenImage(`./${imageFileName}`);
+        setShowImage(true);
+    }
+
+    const closeImage = () => {
+        setShowImage(false);
+        setChoosenImage(null);
     }
 
     const previousAssessment = () => {
@@ -210,7 +222,7 @@ export default function Home() {
 
         setNihssTotalScore(sum);
         console.log(sum);
-        
+
     }
 
     const newAssessment = () => {
@@ -224,191 +236,247 @@ export default function Home() {
         <>
             {/* <PushNotificationManager />
             <InstallPrompt /> */}
-            <main>
-                {/* Assessment div */}
-                <div style={{ display: assessmentFinished === false ? 'flex' : 'none' }} className={styles.mainContentFlex}>
-                    <div className={styles.mainContentFlexTop}>
-                        {/* Undersøgelse og suplerende til undersøgelse  */}
-                        <div className={styles.assessmentHeaderContainer}>
-                            <div className={styles.assessmentHeader}>
-                                {NIHSS[assessmentNumber - 1].assessmentTitle}
-                            </div>
-                            <div className={styles.assessmentSubHeader}>
-                                {NIHSS[assessmentNumber - 1].assessmentSubTitle}
-                            </div>
+            {showImage === true ? (
+                <div className={styles.AssessmentImageContainer}>
+                    {choosenImage === './9-kitchen.png' ? (
+                        <div className={styles.AssessmentImageKitchen}>
+                            <img src={`/${choosenImage}`} />
                         </div>
-                        {/* Beskrivelse af undersøgelse */}
-                        <div className={styles.assessmentDescription}>
-                            {NIHSS[assessmentNumber - 1].description}
-                            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at sem lobortis, efficitur neque eget, fringilla ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent auctor consectetur massa, in faucibus turpis posuere eu. Curabitur ac feugiat nibh. Aenean mi ante, ultricies vitae aliquet sed, euismod eget erat. Suspendisse ac turpis nisi. */}
+                    ) : (
+                        <div className={styles.AssessmentImage}>
+                            <img src={`/${choosenImage}`} />
                         </div>
-                    </div>
-                    <div className={styles.mainContentFlexBottom}>
-                        {/* Valg af point */}
-                        <div className={styles.assessmentScoringContainer}>
-                            {/* <div className={styles.assessmentScoringText}>
-                                Angiv point:
-                            </div> */}
-                            <div className={styles.assessmentScoringButtonsContainer}>
-                                {NIHSS[assessmentNumber - 1].assessmentScoring.map(b => (
-                                    <ScoreButton key={b.score} score={b.score} description={b.description} active={scoring[assessmentNumber - 1] === b.score} />
-                                ))}
-                            </div>
-                        </div>
-                        {/* Næste undersøgelse knap */}
-                        <div className={styles.nextAssessmentButtonContainer}>
-                            <button onClick={previousAssessment} style={{ width: "20%" }} className={styles.previousAssessmentButton}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
-                            </button>
-                            {assessmentNumber < 15 ? (
-                                <button disabled={scoring[assessmentNumber - 1] === null ? true : false} onClick={nextAssessment} style={{ width: "80%" }} className={styles.nextAssessmentButton}>
-                                    Næste
-                                </button>
-                            ) : (
-                                <button onClick={finishAssessment} style={{ width: "80%" }} className={styles.nextAssessmentButton}>
-                                    Afslut
-                                </button>
-                            )}
-                        </div>
-                        {/* Progressbar */}
-                        <div style={{ width: `${assessmentNumber * 6.33}%` }} className={styles.progressbar}></div>
-                    </div>
-                </div>
-                {/*  */}
-                {/*  */}
-                <div style={{ display: assessmentFinished === true ? 'flex' : 'none' }} className={styles.assessmentFinishedDisplay}>
-                    <div className={styles.assessmentFinishedTotal}>
-                        NIHSS score: <span>{nihssTotalScore}</span>
-                    </div>
-                    <div className={styles.assessmentFinishedTableContainer}>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                1a.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[0]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                1b.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[1]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                1c.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[2]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                2.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[3]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                3.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[4]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                4.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[5]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                5a.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[6]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                5b.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[7]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                6a.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[8]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                6b.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[7]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                7.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[10]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                8.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[11]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                9.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[12]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                10.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[13]}
-                            </div>
-                        </div>
-                        <div className={styles.assessmentFinishedContainer}>
-                            <div>
-                                11.
-                            </div>
-                            <div>
-                                {scoring[0] === null ? '--' : scoring[14]}
-                            </div>
-                        </div>
-                    </div>
-                    <div style={{ paddingBottom: '16px' }}>
-                        <button onClick={newAssessment} className={styles.nextAssessmentButton}>
-                            Ny patient?
+                    )}
+                    <div className={styles.AssessmentImageCloseDiv}>
+                        <button onClick={closeImage}>
+                            Luk billede
                         </button>
                     </div>
                 </div>
-            </main>
+            ) : (
+                <main>
+                    {/* Assessment div */}
+                    <div style={{ display: assessmentFinished === false ? 'flex' : 'none' }} className={styles.mainContentFlex}>
+                        <div className={styles.mainContentFlexTop}>
+                            {/* Undersøgelse og suplerende til undersøgelse  */}
+                            <div className={styles.assessmentHeaderContainer}>
+                                <div className={styles.assessmentHeader}>
+                                    {NIHSS[assessmentNumber - 1].assessmentTitle}
+                                </div>
+                                <div className={styles.assessmentSubHeader}>
+                                    {NIHSS[assessmentNumber - 1].assessmentSubTitle}
+                                </div>
+                            </div>
+                            {/* Beskrivelse af undersøgelse */}
+                            <div className={styles.assessmentDescription}>
+                                <div className={styles.assessmentDescriptionHeader}>
+                                    <u>{NIHSS[assessmentNumber - 1].descriptionHeader}</u>
+                                </div>
+                                {NIHSS[assessmentNumber - 1].description}
+                                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at sem lobortis, efficitur neque eget, fringilla ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent auctor consectetur massa, in faucibus turpis posuere eu. Curabitur ac feugiat nibh. Aenean mi ante, ultricies vitae aliquet sed, euismod eget erat. Suspendisse ac turpis nisi. */}
+                            </div>
+                        </div>
+                        {assessmentNumber === 13 ? (
+                            <div className={styles.imagesContainer}>
+                                <div className={styles.imagesContainerTitle}>
+                                    Billeder: <span>(Klik for at se billede)</span>
+                                </div>
+                                <div className={styles.imagesButtonsContainer}>
+                                    <button onClick={() => openImage("9-kitchen.png")}>
+                                        Køkken
+                                    </button>
+                                    <button onClick={() => openImage("9-objects.png")}>
+                                        Genstande
+                                    </button>
+                                    <button onClick={() => openImage("9-sentences.png")}>
+                                        Sætninger
+                                    </button>
+                                    {/* <button onClick={() => openImage("9-words.png")}>
+                                        Ord
+                                    </button> */}
+                                </div>
+                            </div>
+                        ) : null}
+                        {assessmentNumber === 14 ? (
+                            <div className={styles.imagesContainer}>
+                                <div className={styles.imagesContainerTitle}>
+                                    Billeder: <span>(Klik for at se billede)</span>
+                                </div>
+                                <div className={styles.imagesButtonsContainer}>
+                                    <button onClick={() => openImage("9-words.png")}>
+                                        Ord
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
+                        <div className={styles.mainContentFlexBottom}>
+                            {/* Valg af point */}
+                            <div className={styles.assessmentScoringContainer}>
+                                {/* <div className={styles.assessmentScoringText}>
+                                Angiv point:
+                            </div> */}
+                                <div className={styles.assessmentScoringButtonsContainer}>
+                                    {NIHSS[assessmentNumber - 1].assessmentScoring.map(b => (
+                                        <ScoreButton key={b.score} score={b.score} description={b.description} active={scoring[assessmentNumber - 1] === b.score} />
+                                    ))}
+                                </div>
+                            </div>
+                            {/* Næste undersøgelse knap */}
+                            <div className={styles.nextAssessmentButtonContainer}>
+                                <button onClick={previousAssessment} style={{ width: "20%" }} className={styles.previousAssessmentButton}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
+                                </button>
+                                {assessmentNumber < 15 ? (
+                                    // disabled={scoring[assessmentNumber - 1] === null ? true : false}
+                                    <button onClick={nextAssessment} style={{ width: "80%" }} className={styles.nextAssessmentButton}>
+                                        Næste
+                                    </button>
+                                ) : (
+                                    <button onClick={finishAssessment} style={{ width: "80%" }} className={styles.nextAssessmentButton}>
+                                        Afslut
+                                    </button>
+                                )}
+                            </div>
+                            {/* Progressbar */}
+                            <div style={{ width: `${assessmentNumber * 6.33}%` }} className={styles.progressbar}></div>
+                        </div>
+                    </div>
+                    {/*  */}
+                    {/*  */}
+                    <div style={{ display: assessmentFinished === true ? 'flex' : 'none' }} className={styles.assessmentFinishedDisplay}>
+                        <div className={styles.assessmentFinishedTotal}>
+                            NIHSS score: <span>{nihssTotalScore}</span>
+                        </div>
+                        <div className={styles.assessmentFinishedTableContainer}>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    1a.
+                                </div>
+                                <div>
+                                    {scoring[0] === null ? '--' : scoring[0]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    1b.
+                                </div>
+                                <div>
+                                    {scoring[1] === null ? '--' : scoring[1]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    1c.
+                                </div>
+                                <div>
+                                    {scoring[2] === null ? '--' : scoring[2]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    2.
+                                </div>
+                                <div>
+                                    {scoring[3] === null ? '--' : scoring[3]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    3.
+                                </div>
+                                <div>
+                                    {scoring[4] === null ? '--' : scoring[4]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    4.
+                                </div>
+                                <div>
+                                    {scoring[5] === null ? '--' : scoring[5]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    5a.
+                                </div>
+                                <div>
+                                    {scoring[6] === null ? '--' : scoring[6]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    5b.
+                                </div>
+                                <div>
+                                    {scoring[7] === null ? '--' : scoring[7]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    6a.
+                                </div>
+                                <div>
+                                    {scoring[8] === null ? '--' : scoring[8]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    6b.
+                                </div>
+                                <div>
+                                    {scoring[9] === null ? '--' : scoring[7]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    7.
+                                </div>
+                                <div>
+                                    {scoring[10] === null ? '--' : scoring[10]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    8.
+                                </div>
+                                <div>
+                                    {scoring[11] === null ? '--' : scoring[11]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    9.
+                                </div>
+                                <div>
+                                    {scoring[12] === null ? '--' : scoring[12]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    10.
+                                </div>
+                                <div>
+                                    {scoring[13] === null ? '--' : scoring[13]}
+                                </div>
+                            </div>
+                            <div className={styles.assessmentFinishedContainer}>
+                                <div>
+                                    11.
+                                </div>
+                                <div>
+                                    {scoring[14] === null ? '--' : scoring[14]}
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ paddingBottom: '0px' }}>
+                            <button style={{ fontSize: "18px" }} onClick={newAssessment} className={styles.nextAssessmentButton}>
+                                Ny patient?
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            )}
         </>
     );
 }
