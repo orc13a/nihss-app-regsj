@@ -160,6 +160,7 @@ export default function Home() {
     const [assessmentFinished, setAssessmentFinished] = useState(false);
     const [showImage, setShowImage] = useState(false);
     const [choosenImage, setChoosenImage] = useState(null);
+    const [showConfirmNewAssessment, setShowConfirmNewAssessment] = useState(false);
 
     useEffect(() => {
 
@@ -238,7 +239,7 @@ export default function Home() {
             <InstallPrompt /> */}
             {showImage === true ? (
                 <div className={styles.AssessmentImageContainer}>
-                    {choosenImage === './9-kitchen.png' ? (
+                    {choosenImage === './9-room.jpg' ? (
                         <div className={styles.AssessmentImageKitchen}>
                             <img src={`/${choosenImage}`} />
                         </div>
@@ -279,17 +280,20 @@ export default function Home() {
                         {assessmentNumber === 13 ? (
                             <div className={styles.imagesContainer}>
                                 <div className={styles.imagesContainerTitle}>
-                                    Billeder: <span>(Klik for at se billede)</span>
+                                    Billeder: <span>(Klik for at se billede. Taler patienten dansk, bruges engelsk ikke)</span>
                                 </div>
                                 <div className={styles.imagesButtonsContainer}>
-                                    <button onClick={() => openImage("9-kitchen.png")}>
-                                        Køkken
+                                    <button onClick={() => openImage("9-room.jpg")}>
+                                        Værelse
                                     </button>
-                                    <button onClick={() => openImage("9-objects.png")}>
+                                    <button onClick={() => openImage("9-objects-new.jpg")}>
                                         Genstande
                                     </button>
-                                    <button onClick={() => openImage("9-sentences.png")}>
+                                    <button onClick={() => openImage("9-sentences-danish.png")}>
                                         Sætninger
+                                    </button>
+                                    <button onClick={() => openImage("9-sentences.png")}>
+                                        Sætninger (engelsk)
                                     </button>
                                     {/* <button onClick={() => openImage("9-words.png")}>
                                         Ord
@@ -300,11 +304,14 @@ export default function Home() {
                         {assessmentNumber === 14 ? (
                             <div className={styles.imagesContainer}>
                                 <div className={styles.imagesContainerTitle}>
-                                    Billeder: <span>(Klik for at se billede)</span>
+                                    Billeder: <span>(Klik for at se billede. Taler patienten dansk, bruges engelsk ikke)</span>
                                 </div>
                                 <div className={styles.imagesButtonsContainer}>
-                                    <button onClick={() => openImage("9-words.png")}>
+                                    <button onClick={() => openImage("9-words-danish.png")}>
                                         Ord
+                                    </button>
+                                    <button onClick={() => openImage("9-words.png")}>
+                                        Ord (engelsk)
                                     </button>
                                 </div>
                             </div>
@@ -350,7 +357,7 @@ export default function Home() {
                         <div className={styles.assessmentFinishedTableContainer}>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    1a.
+                                    1a. Bevisthedsnivaue
                                 </div>
                                 <div>
                                     {scoring[0] === null ? '--' : scoring[0]}
@@ -358,7 +365,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    1b.
+                                    1b. Spørgsmål
                                 </div>
                                 <div>
                                     {scoring[1] === null ? '--' : scoring[1]}
@@ -366,7 +373,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    1c.
+                                    1c. Kommandoer
                                 </div>
                                 <div>
                                     {scoring[2] === null ? '--' : scoring[2]}
@@ -374,7 +381,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    2.
+                                    2. Blik
                                 </div>
                                 <div>
                                     {scoring[3] === null ? '--' : scoring[3]}
@@ -382,7 +389,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    3.
+                                    3. Test af synsfelt
                                 </div>
                                 <div>
                                     {scoring[4] === null ? '--' : scoring[4]}
@@ -390,7 +397,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    4.
+                                    4. Facialisparese
                                 </div>
                                 <div>
                                     {scoring[5] === null ? '--' : scoring[5]}
@@ -398,7 +405,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    5a.
+                                    5a. Motorisk funktion - ve. arm
                                 </div>
                                 <div>
                                     {scoring[6] === null ? '--' : scoring[6]}
@@ -406,7 +413,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    5b.
+                                    5b. Motorisk funktion - hø. arm
                                 </div>
                                 <div>
                                     {scoring[7] === null ? '--' : scoring[7]}
@@ -414,7 +421,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    6a.
+                                    6a. Motorisk funktion - ve. ben
                                 </div>
                                 <div>
                                     {scoring[8] === null ? '--' : scoring[8]}
@@ -422,7 +429,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    6b.
+                                    6b. Motorisk funktion - hø. ben
                                 </div>
                                 <div>
                                     {scoring[9] === null ? '--' : scoring[7]}
@@ -430,7 +437,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    7.
+                                    7. Ekstremitets ataksi
                                 </div>
                                 <div>
                                     {scoring[10] === null ? '--' : scoring[10]}
@@ -438,7 +445,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    8.
+                                    8. Sensibilitet
                                 </div>
                                 <div>
                                     {scoring[11] === null ? '--' : scoring[11]}
@@ -446,7 +453,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    9.
+                                    9. Afasi
                                 </div>
                                 <div>
                                     {scoring[12] === null ? '--' : scoring[12]}
@@ -454,7 +461,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    10.
+                                    10. Dysartri
                                 </div>
                                 <div>
                                     {scoring[13] === null ? '--' : scoring[13]}
@@ -462,7 +469,7 @@ export default function Home() {
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
                                 <div>
-                                    11.
+                                    11. Inattention
                                 </div>
                                 <div>
                                     {scoring[14] === null ? '--' : scoring[14]}
@@ -470,9 +477,20 @@ export default function Home() {
                             </div>
                         </div>
                         <div style={{ paddingBottom: '0px' }}>
-                            <button style={{ fontSize: "18px" }} onClick={newAssessment} className={styles.nextAssessmentButton}>
-                                Ny patient?
-                            </button>
+                            {showConfirmNewAssessment === false ? (
+                                <button style={{ fontSize: "18px" }} onClick={() => setShowConfirmNewAssessment(true)} className={styles.nextAssessmentButton}>
+                                    Ny patient?
+                                </button>
+                            ) : (
+                                <div className={styles.confirmNewAssessmentContainer}>
+                                    <button style={{ fontSize: "18px", backgroundColor: '#9c0606' }} onClick={newAssessment} className={styles.confirmNewAssessmentButton}>
+                                        Ja
+                                    </button>
+                                    <button style={{ fontSize: "18px" }} onClick={() => setShowConfirmNewAssessment(false)} className={styles.confirmNewAssessmentButton}>
+                                        Nej
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </main>
