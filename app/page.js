@@ -215,7 +215,7 @@ export default function Home() {
 
     const calAssessmentSum = () => {
         let sum = 0;
-
+        
         scoring.forEach(score => {
             let s = score === null ? 0 : score;
             sum += s;
@@ -231,6 +231,7 @@ export default function Home() {
         setScoring(scoringDefault);
         setNihssTotalScore(0);
         setAssessmentFinished(false);
+        setShowConfirmNewAssessment(false);
     }
 
     return (
@@ -432,7 +433,7 @@ export default function Home() {
                                     6b. Motorisk funktion - hø. ben
                                 </div>
                                 <div>
-                                    {scoring[9] === null ? '--' : scoring[7]}
+                                    {scoring[9] === null ? '--' : scoring[9]}
                                 </div>
                             </div>
                             <div className={styles.assessmentFinishedContainer}>
