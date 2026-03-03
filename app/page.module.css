@@ -17,7 +17,6 @@
 .title {
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
@@ -27,6 +26,7 @@
 }
 
 .subtitle {
+  margin-top: 8px;
   font-size: 14px;
   font-weight: 500;
   color: #71717A;
@@ -39,6 +39,14 @@
   width: 100%;
   /* text-align: justify; */
   font-size: 16px;
+}
+
+.descriptionTitle {
+  font-weight: 600;
+  font-size: 20px;
+  /* text-decoration: underline; */
+  margin-bottom: 8px;
+  color: #006FEE;
 }
 
 .assessmentOptionsContainer {

@@ -5,7 +5,7 @@ import NIHSS from "./nihss.json";
 import { useState, useEffect, use } from 'react'
 import { useRouter } from "next/navigation";
 import { Button, Card, CardBody, CardHeader, Checkbox, CircularProgress, cn, Divider } from "@heroui/react";
-import { IconArrowNarrowLeft, IconArrowNarrowRight, IconNumber0, IconNumber1, IconNumber2, IconNumber3, IconNumber4 } from "@tabler/icons-react";
+import { IconArrowNarrowLeft, IconArrowNarrowRight, IconCheck, IconNumber0, IconNumber1, IconNumber2, IconNumber3, IconNumber4, IconNumber5 } from "@tabler/icons-react";
 // import { subscribeUser, unsubscribeUser, sendNotification } from './actions'
 
 // function urlBase64ToUint8Array(base64String) {
@@ -156,39 +156,77 @@ const scoringDefault = [
 ];
 
 export default function Home() {
-    const AssessmentOptionCheckbox = ({ icon, text }) => (
-        <div className="w-full">
-            <Checkbox
-                className="w-full"
-                classNames={{
-                    base: cn(
-                        "!w-full",
-                        "w-full",
-                        "max-w-none",
-                        "block",
-                        "flex",
-                        "bg-content1",
-                        "hover:bg-content2",
-                        "cursor-pointer rounded-lg gap-2 py-3 border-2 border-content3",
-                        "data-[selected=true]:border-primary",
-                    ),
-                    label: "!w-full w-full block max-w-none",
-                    icon: "hidden",
-                    wrapper: "hidden"
-                }}
-                style={{ margin: "0.5px", width: "100%", display: "block" }}
-            >
-                <div className={cn(styles.assessmentOptionContentContainer, "w-full")}>
-                    <div style={{ color: "#006FEE" }}>
-                        {icon}
+    const [assessmentNumber, setAssessmentNumber] = useState(1);
+    const [scoring, setScoring] = useState(scoringDefault);
+    const [nihssTotalScore, setNihssTotalScore] = useState(0);
+    const [assessmentFinished, setAssessmentFinished] = useState(false);
+    const [showImage, setShowImage] = useState(false);
+    const [choosenImage, setChoosenImage] = useState(null);
+    const [showConfirmNewAssessment, setShowConfirmNewAssessment] = useState(false);
+
+    const AssessmentOptionCheckbox = ({ score, isSelected, icon, text }) => {
+        const sellectScore = (selectedState) => {
+            const newScoring = [...scoring]; // ← kopi
+
+            if (selectedState === true) {
+                newScoring[assessmentNumber - 1] = score;
+                setScoring(newScoring);
+            }
+        }
+
+        return (
+            <div className="w-full">
+                <Checkbox
+                    isSelected={isSelected}
+                    onValueChange={(e) => sellectScore(e)}
+                    className="w-full"
+                    classNames={{
+                        base: cn(
+                            "!w-full",
+                            "w-full",
+                            "max-w-none",
+                            "block",
+                            "flex",
+                            "bg-content1",
+                            "hover:bg-content2",
+                            "cursor-pointer rounded-lg gap-2 py-3 border-2 border-content3",
+                            "data-[selected=true]:border-primary",
+                        ),
+                        label: "!w-full w-full block max-w-none",
+                        icon: "hidden",
+                        wrapper: "hidden"
+                    }}
+                    style={{ margin: "0.5px", width: "100%", display: "block" }}
+                >
+                    <div className={cn(styles.assessmentOptionContentContainer, "w-full")}>
+                        <div style={{ color: "#006FEE" }}>
+                            {icon === 0 ? <IconNumber0 /> : null}
+                            {icon === 1 ? <IconNumber1 /> : null}
+                            {icon === 2 ? <IconNumber2 /> : null}
+                            {icon === 3 ? <IconNumber3 /> : null}
+                            {icon === 4 ? <IconNumber4 /> : null}
+                            {icon === 5 ? <IconNumber5 /> : null}
+                        </div>
+                        <div className="w-full">
+                            {text}
+                        </div>
                     </div>
-                    <div className="w-full">
-                        {text}
-                    </div>
-                </div>
-            </Checkbox>
-        </div>
-    );
+                </Checkbox>
+            </div>
+        );
+    };
+
+    const previousAssessment = () => {
+        if (assessmentNumber !== 1) {
+            setAssessmentNumber(assessmentNumber - 1)
+        }
+    }
+
+    const nextAssessment = () => {
+        if (assessmentNumber !== 15) {
+            setAssessmentNumber(assessmentNumber + 1)
+        }
+    }
 
     return (
         <>
@@ -199,17 +237,30 @@ export default function Home() {
                             <CardHeader>
                                 <div className={styles.header}>
                                     <div className={styles.title}>
-                                        <span>1a.</span> Bevisthedsnivaue
+                                        {/* <span>1a.</span> Bevisthedsnivaue */}
+                                        {NIHSS[assessmentNumber - 1].assessmentTitle}
                                     </div>
-                                    <div className={styles.subtitle}>
-                                        Ligger du godt - Har du nogen smerter
-                                    </div>
+                                    {NIHSS[assessmentNumber - 1].assessmentSubTitle.length > 1 &&
+                                    assessmentNumber !== 7 &&
+                                    assessmentNumber !== 8 &&
+                                    assessmentNumber !== 9 &&
+                                    assessmentNumber !== 10 ? (
+                                        <div className={styles.subtitle}>
+                                            {NIHSS[assessmentNumber - 1].assessmentSubTitle}
+                                        </div>
+                                    ) : null}
                                 </div>
                             </CardHeader>
                             <Divider />
                             <CardBody>
                                 <div className={styles.descriptionContainer}>
-                                    Vurder patientens vågenhed ud fra spontan kontakt, reaktion på tiltale og reaktion på smerte. Vælg det bedst mulige respons, også hvis fuld undersøgelse hindres af fx tube eller sprogbarriere. Score 3 gives kun, hvis der ingen bevægelse ses udover abnorme refleksmønstre ved smerte.
+                                    {assessmentNumber === 7 ||
+                                    assessmentNumber === 8 ||
+                                    assessmentNumber === 9 ||
+                                    assessmentNumber === 10 ? (
+                                        <div className={styles.descriptionTitle}>{NIHSS[assessmentNumber - 1].assessmentSubTitle}</div>
+                                    ) : null}
+                                    {NIHSS[assessmentNumber - 1].description}
                                 </div>
                             </CardBody>
                         </Card>
@@ -217,10 +268,15 @@ export default function Home() {
                 </main>
                 <div>
                     <div className={styles.assessmentOptionsContainer}>
-                        <AssessmentOptionCheckbox icon={<IconNumber0 />} text="Helt vågen, reagerer naturligt" />
-                        <AssessmentOptionCheckbox icon={<IconNumber1 />} text="Ikke vågen, men responderer ved mindre stimuli" />
-                        <AssessmentOptionCheckbox icon={<IconNumber2 />} text="Ikke vågen, kan kun vækkes ved gentagne eller kraftige stimuli" />
-                        <AssessmentOptionCheckbox icon={<IconNumber3 />} text="Ukontaktbar" />
+                        {NIHSS[assessmentNumber - 1].assessmentScoring.map(b => (
+                            <AssessmentOptionCheckbox
+                                key={b.score}
+                                score={b.score}
+                                isSelected={scoring[assessmentNumber - 1] === b.score}
+                                icon={b.score}
+                                text={b.description}
+                            />
+                        ))}
                     </div>
                     <footer className={styles.footer}>
                         <div>
@@ -228,7 +284,7 @@ export default function Home() {
                                 <CardBody>
                                     <div className={styles.footerBody}>
                                         <div>
-                                            <Button isDisabled={true} variant="bordered" color="primary" size="lg"><IconArrowNarrowLeft /></Button>
+                                            <Button onClick={previousAssessment} isDisabled={assessmentNumber === 1} variant="bordered" color="primary" size="lg"><IconArrowNarrowLeft /></Button>
                                         </div>
                                         <div>
                                             <CircularProgress
@@ -236,11 +292,15 @@ export default function Home() {
                                                 color="primary"
                                                 showValueLabel={false}
                                                 size="md"
-                                                value={(1 / 15) * 100}
+                                                value={(assessmentNumber / 15) * 100}
                                             />
                                         </div>
                                         <div>
-                                            <Button color="primary" size="lg"><IconArrowNarrowRight /></Button>
+                                            {assessmentNumber === 15 ?
+                                                <Button onClick={nextAssessment} color="success" size="lg"><IconCheck /></Button>
+                                            : 
+                                                <Button onClick={nextAssessment} color="primary" size="lg"><IconArrowNarrowRight /></Button>
+                                            }
                                         </div>
                                     </div>
                                 </CardBody>
