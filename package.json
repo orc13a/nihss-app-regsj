@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroui/modal": "^2.2.28",
     "@heroui/react": "^2.8.9",
     "@tabler/icons-react": "^3.38.0",
     "@tailwindcss/postcss": "^4.2.1",
