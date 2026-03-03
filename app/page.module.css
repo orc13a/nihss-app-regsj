@@ -1,323 +1,77 @@
-.AssessmentImageContainer {
-  image-orientation: from-image;
-}
-
-.AssessmentImageCloseDiv {
-  position: fixed;
-  left: 0px;
-  bottom: 25px;
-  text-align: center;
-  width: 100%;
-}
-
-.AssessmentImageCloseDiv > button {
-  background-color: #06809C;
-  border: none;
-  color: #F5F5F5;
-  letter-spacing: 1px;
-  border-radius: 8px;
-  padding: 12px 50px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  font-size: 22px;
-}
-
-.AssessmentImageKitchen {
-  transform: rotate(90deg);
-  display: flex;
-  height: 100%;
-}
-
-.AssessmentImageKitchen > img {
-  width: auto;
-  height: 100vw;
-}
-
-.AssessmentImage {
-  /* transform: rotate(90deg); */
-  display: flex;
-  height: 100%;
-}
-
-.AssessmentImage > img {
-  width: 100vw;
-  height: auto;
-}
-
-.mainContentFlex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.assessmentHeaderContainer {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    gap: 6px;
-    margin-bottom: 20px;
-    background-color: #06809C;
-}
-
-.assessmentHeader {
-    /* color: #06809C; */
-    color: #F5F5F5;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 2px;
-}
-
-.assessmentSubHeader {
-    color: #cfcfcf;
-}
-
-.assessmentDescriptionHeader {
-  margin-bottom: 10px;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.assessmentDescription {
-    padding: 0px 16px;
-}
-
-.mainContentFlexBottom {
-    width: 100%;
-}
-
-.assessmentScoringContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* padding: 0px 16px; */
-    /* align-items: center; */
-    width: 100%;
-}
-
-.assessmentScoringText {
-  display: flex;
-  text-align: start;
-  justify-content: left;
-  padding: 0px 16px 16px 16px;
-  font-weight: 600;
-  font-size: 23px;
-}
-
-.assessmentScoringButtonsContainer {
+.body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.main {
+  padding: 14px;
+}
+
+.header {
+  /* padding: 16px 16px 16px 16px; */
+  padding: 4px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.title > span {
+  color: #006FEE;
+  font-size: 18px;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #71717A;
+}
+
+.descriptionContainer {
+  /* padding: 22px; */
+  padding: 4px;
+  /* text-justify: initial; */
+  width: 100%;
+  /* text-align: justify; */
+  font-size: 16px;
+}
+
+.assessmentOptionsContainer {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 10px;
   width: 100%;
 }
 
-.assessmentScoringButtonContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.assessmentOptionsContainer > button {
+  width: 100%;
 }
 
-.assessmentScoringButton {
-    width: 80%;
-    border: 2px solid #06809C;
-    background-color: #F5F5F5;
-    color: #06809C;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: start;
-    justify-content: center;
-}
-
-.assessmentScoringButton > span {
-  font-weight: 600;
-  font-size: 22px;
-}
-
-.assessmentScoringButtonActive {
-  color: #F5F5F5;
-  background-color: #06809C;
-  border: 2px solid #06809C;
-  width: 80%;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: start;
-  justify-content: center;
-}
-
-.assessmentScoringButtonActive > span {
-  font-weight: 600;
-  font-size: 22px;
-}
-
-.nextAssessmentButtonContainer {
+.assessmentOptionContentContainer {
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  padding: 16px 16px 16px 16px;
-  margin-top: 0px;
-}
-
-.previousAssessmentButton {
-  width: 100%;
-  border: none;
-  background-color: rgba(6, 128, 156, 0.1);
-  color: #06809C;
-  border: 2px solid #06809C;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 28px;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.nextAssessmentButton {
-    width: 100%;
-    /* border: 2px solid #06809C; */
-    border: none;
-    background-color: rgba(6, 128, 156, 1);
-    color: #F5F5F5;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 28px;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.progressbar {
-    /* 100/15, så 15 dele */
-    width: 6.66%;
-    height: 4px;
-    background-color: #CCE6EB;
-    position: fixed;
-    top: 0px;
-}
-
-.assessmentFinishedDisplay {
-  padding: 0px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  /* justify-content: space-between; */
-  height: 100%;
-}
-
-.assessmentFinishedTotal {
-  font-size: 32px;
-  font-weight: 500;
-  /* padding: 22px 0px; */
-  padding-top: 16px;
-}
-
-.assessmentFinishedTotal > span {
-  font-weight: 900;
-}
-
-.assessmentFinishedTableContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  gap: 5px;
-}
-
-.assessmentFinishedContainer {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  justify-content: space-between;
-  background-color: rgb(224, 224, 224);
-  padding: 8px;
-  border-radius: 8px;
-}
-
-.imagesContainer {
-  padding: 0px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-weight: 600;
-}
-
-.imagesContainerTitle > span {
-  font-size: small;
-  font-weight: 400;
-  color: rgb(121, 121, 121);
-}
-
-.imagesButtonsContainer {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.imagesButtonsContainer > button {
-  /* border: 2px solid #06809C;
-  background-color: #F5F5F5; */
-  background-color: #06809C;
-  border: none;
-  color: #F5F5F5;
-  letter-spacing: 1px;
-  border-radius: 8px;
-  padding: 6px 12px;
+  gap: 10px;
   font-size: 16px;
+  width: 100%;
+  line-height: 20px;
 }
 
-.confirmNewAssessmentContainer {
+.footer {
+  padding: 0px 12px 26px 12px;
+}
+
+.footerBody {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 16px;
-  width: 100%;
+  align-items: center;
 }
-
-.confirmNewAssessmentButton {
-  width: 100%;
-  /* border: 2px solid #06809C; */
-  border: none;
-  background-color: rgba(6, 128, 156, 1);
-  color: #F5F5F5;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 28px;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-/* .imagesButton {
-
-} */
-
-/* .assessmentFinishedTableContainer > table {
-  border: 1px solid #333;
-  width: 100%;
-  gap: 0px;
-  padding: 0px;
-  margin: 0px;
-  border-spacing: 0px;
-}
-
-.assessmentFinishedTableContainer > table > thead > tr > th {
-  padding: 10px;
-  font-size: 22px;
-}
-
-.assessmentFinishedTableContainer > table > tbody > tr > td {
-  border: 1px solid #333;
-  width: 100%;
-  padding: 6px 12px;
-  font-size: 18px;
-} */

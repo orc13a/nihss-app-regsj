@@ -1,4 +1,7 @@
+// "use client"
+
 import "./globals.css";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "NIHSS",
@@ -9,7 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="da">
       <body>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
